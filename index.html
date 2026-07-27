@@ -3,143 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Steris Healthcare Premium</title>
+    <title>Grovance Digital | Cold Outreach Dashboard</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 </head>
 <body>
 
-    <!-- Dynamic background gradients -->
-    <div class="bg-mesh">
-        <div class="blob purple-blob"></div>
-        <div class="blob orange-blob"></div>
-    </div>
-
-    <!-- Minimal Navbar -->
-    <nav class="navbar reveal">
-        <div class="logo">Steris<span>Healthcare</span></div>
-        <a href="#shop" class="btn-glass">Shop Now</a>
-    </nav>
-
-    <!-- Cinematic Hero -->
-    <section class="hero">
-        <div class="hero-content reveal" style="transition-delay: 0.2s;">
-            <div class="badge-glow">Next-Gen Nutrition</div>
-            <h1 class="hero-title">Redefining<br><span class="text-gradient">Vitality.</span></h1>
-            <p class="hero-subtitle">Experience the pinnacle of pharmaceutical science with our premium supplements, engineered for maximum absorption and real results.</p>
-            
-            <div class="scroll-indicator">
-                <p>Discover</p>
-                <div class="mouse"><div class="wheel"></div></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Luxury Product Showcase -->
-    <section id="shop" class="showcase">
-        
-        <!-- Product 1: Glutatheon -->
-        <div class="product-showcase reveal">
-            <div class="product-info-panel">
-                <div class="category">Skin & Wellness</div>
-                <h2 class="title-3d">Glutatheon</h2>
-                <p class="chemical-name">Glutathione with Vitamin C</p>
-                
-                <p class="desc">A revolutionary antioxidant formula that detoxifies your body from within, revealing a radiant, glowing complexion.</p>
-                
-                <div class="features-list">
-                    <div class="feature-item">
-                        <div class="f-icon">✨</div>
-                        <div>
-                            <h4>Radiant Skin</h4>
-                            <p>Brightens and clears complexion.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="f-icon">🛡️</div>
-                        <div>
-                            <h4>Immunity Boost</h4>
-                            <p>Strengthens natural defenses.</p>
-                        </div>
-                    </div>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <div class="logo-icon">G</div>
+                <div>
+                    <h2>Grovance</h2>
+                    <span>Outreach Tool</span>
                 </div>
-
-                <div class="pricing-card glass-panel">
-                    <div class="prices">
-                        <div class="price-col">
-                            <span class="p-label">Net</span>
-                            <span class="p-val">800 <small>PKR</small></span>
-                        </div>
-                        <div class="price-col retail">
-                            <span class="p-label">Retail</span>
-                            <span class="p-val">2650 <small>PKR</small></span>
-                        </div>
-                    </div>
-                    <button class="btn-action purple-glow">Add to Cart</button>
-                </div>
-            </div>
-            
-            <div class="product-visual">
-                <div class="glow-ring purple"></div>
-                <img src="C:/Users/HP/.gemini/antigravity-ide/brain/9d93de3e-d542-4656-a7fd-ce67e90c6601/glutatheon_bottle_1785181170687.png" alt="Glutatheon" class="floating-bottle">
             </div>
         </div>
 
-        <!-- Product 2: Calbonate CD -->
-        <div class="product-showcase reverse reveal">
-            <div class="product-info-panel">
-                <div class="category orange">Bone & Energy</div>
-                <h2 class="title-3d orange-text">Calbonate CD</h2>
-                <p class="chemical-name">Calcium + Vit C & Vit D3</p>
-                
-                <p class="desc">The ultimate effervescent trio. Rapidly absorbed nutrients designed to supercharge your bones and everyday energy levels.</p>
-                
-                <div class="features-list">
-                    <div class="feature-item">
-                        <div class="f-icon orange-icon">🦴</div>
-                        <div>
-                            <h4>Strong Bones</h4>
-                            <p>Fortified calcium matrix.</p>
-                        </div>
-                    </div>
-                    <div class="feature-item">
-                        <div class="f-icon orange-icon">⚡</div>
-                        <div>
-                            <h4>Triple Energy</h4>
-                            <p>Instant effervescent vitality.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="pricing-card glass-panel">
-                    <div class="prices">
-                        <div class="price-col">
-                            <span class="p-label">Net</span>
-                            <span class="p-val">190 <small>PKR</small></span>
-                        </div>
-                        <div class="price-col retail">
-                            <span class="p-label">Retail</span>
-                            <span class="p-val">450 <small>PKR</small></span>
-                        </div>
-                    </div>
-                    <button class="btn-action orange-glow">Add to Cart</button>
-                </div>
-            </div>
-            
-            <div class="product-visual">
-                <div class="glow-ring orange"></div>
-                <img src="C:/Users/HP/.gemini/antigravity-ide/brain/9d93de3e-d542-4656-a7fd-ce67e90c6601/calbonate_tube_1785181182025.png" alt="Calbonate CD" class="floating-bottle delay">
+        <div class="sidebar-section">
+            <h4>📂 Upload New Leads</h4>
+            <p>Upload a new Google Sheet (.csv or .tsv) to replace the current data.</p>
+            <button class="btn-upload" onclick="document.getElementById('csvFile').click();">⬆️ Choose File to Upload</button>
+            <input type="file" id="csvFile" accept=".csv,.tsv,.txt" style="display:none;">
+            <div class="file-info" id="fileInfo" style="display:none;">
+                <span class="file-badge">✅</span>
+                <span id="fileName"></span>
             </div>
         </div>
-    </section>
 
-    <footer>
-        <div class="glass-panel footer-content">
-            <h2>Ready to transform your health?</h2>
-            <p>Join thousands who trust Steris Healthcare.</p>
+        <div class="sidebar-section" id="statsPanel">
+            <h4>📊 Campaign Stats</h4>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number" id="statTotal">0</div>
+                    <div class="stat-label">Total Leads</div>
+                </div>
+                <div class="stat-box green">
+                    <div class="stat-number" id="statReady">0</div>
+                    <div class="stat-label">Ready</div>
+                </div>
+                <div class="stat-box orange">
+                    <div class="stat-number" id="statNoPhone">0</div>
+                    <div class="stat-label">No Phone</div>
+                </div>
+            </div>
         </div>
-    </footer>
 
-    <script src="script.js"></script>
+        <div class="sidebar-section">
+            <h4>✏️ Message Template</h4>
+            <p>Edit the message. Use <code>{clinic}</code> to auto-insert clinic name.</p>
+            <textarea id="msgTemplate" rows="12">Hello {clinic} Team! 👋
+
+I was checking out the top dental clinics in Abu Dhabi and really loved your online reviews. Your team is doing a great job!
+
+I'm from Grovance Digital. We help healthcare brands grow online.
+
+We can help you with:
+✅ Premium Website Redesign
+✅ Local SEO & Google Maps Ranking
+✅ Speed Optimization
+
+Would you be open to a quick 5-min chat or a free website audit?
+
+Best,
+Grovance Digital</textarea>
+            <button class="btn-refresh" onclick="renderTable()">🔄 Regenerate All Messages</button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+        <header class="main-header">
+            <div>
+                <h1>Cold Outreach Campaign</h1>
+                <p>Review messages and click the green button to send via WhatsApp.</p>
+            </div>
+        </header>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Clinic Name</th>
+                        <th>Type</th>
+                        <th>Service Needed</th>
+                        <th>Phone</th>
+                        <th>Message Preview</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    <tr class="empty-row">
+                        <td colspan="7">
+                            <div class="empty-state">
+                                <div class="empty-icon">⏳</div>
+                                <h3>Loading leads...</h3>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
 </body>
 </html>
